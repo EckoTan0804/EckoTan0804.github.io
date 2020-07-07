@@ -1,0 +1,1294 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Haobin Tan">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Source: How to Write Beautiful Python Code With PEP 8
+Naming Conventions  “Explicit is better than implicit.” — The Zen of Python
+ ‼️ Note: Never use l (\ell), O (zero), or I (capital i) single letter names as these can be mistaken for 1 and 0, depending on typeface:">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://eckotan0804.github.io/notes/python/best-practice/beautiful-py-code-with-pep8/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://eckotan0804.github.io/notes/python/best-practice/beautiful-py-code-with-pep8/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Haobin Tan">
+  <meta property="og:url" content="https://eckotan0804.github.io/notes/python/best-practice/beautiful-py-code-with-pep8/">
+  <meta property="og:title" content="Beautiful Python Code with PEP 8 | Haobin Tan">
+  <meta property="og:description" content="Source: How to Write Beautiful Python Code With PEP 8
+Naming Conventions  “Explicit is better than implicit.” — The Zen of Python
+ ‼️ Note: Never use l (\ell), O (zero), or I (capital i) single letter names as these can be mistaken for 1 and 0, depending on typeface:"><meta property="og:image" content="https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-07-06T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-07-06T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Beautiful Python Code with PEP 8 | Haobin Tan</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Haobin Tan</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Haobin Tan</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/notes/"><span>Notes</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/notes/python/">Getting Started</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/notes/python/py-basics/args_and_kwargs/">Python Basics</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/notes/python/py-basics/args_and_kwargs/">args and kwargs</a>
+      </li>
+      
+      <li >
+        <a href="/notes/python/py-basics/zip/">zip</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/notes/python/best-practice/beautiful-py-code-with-pep8/">Best Practice</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/notes/python/best-practice/beautiful-py-code-with-pep8/">Beautiful Python Code with PEP 8</a>
+      </li>
+      
+      <li >
+        <a href="/notes/python/best-practice/documenting-py-code/">Documenting Python Code</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#naming-conventions">Naming Conventions</a>
+      <ul>
+        <li><a href="#naming-styles">Naming styles</a></li>
+        <li><a href="#how-to-choose-names">How to choose names</a></li>
+      </ul>
+    </li>
+    <li><a href="#code-layout">Code Layout</a>
+      <ul>
+        <li><a href="#blank-lines">Blank lines</a></li>
+        <li><a href="#maximum-line-length-and-line-breaking">Maximum Line Length and Line Breaking</a></li>
+      </ul>
+    </li>
+    <li><a href="#indentation">Indentation</a>
+      <ul>
+        <li><a href="#indentation-following-line-breaks">Indentation Following Line Breaks</a></li>
+        <li><a href="#where-to-put-the-closing-brace">Where to Put the Closing Brace</a></li>
+      </ul>
+    </li>
+    <li><a href="#comments-and-documentations">Comments and Documentations</a></li>
+    <li><a href="#whitespace-in-expressions-and-statements">Whitespace in Expressions and Statements</a>
+      <ul>
+        <li><a href="#whitespace-around-binary-operators">Whitespace Around Binary Operators</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+    <li><a href="#programming-recommendations">Programming Recommendations</a>
+      <ul>
+        <li><a href="#dont-compare-boolean-values-to-true-or-false-using-the-equivalence-operator">Don’t compare boolean values to <code>True</code> or <code>False</code> using the equivalence operator.</a></li>
+        <li><a href="#use-the-fact-that-empty-sequences-are-falsy-in-if-statements">Use the fact that empty sequences are falsy in <code>if</code> statements.</a></li>
+        <li><a href="#use-is-not-rather-than-not--is-in-if-statements">Use <code>is not</code> rather than <code>not ... is</code> in <code>if</code> statements.</a></li>
+        <li><a href="#dont-use-if-x-when-you-mean-if-x-is-not-none">Don’t use <code>if x:</code> when you mean <code>if x is not None:</code>.</a></li>
+        <li><a href="#use-startswith-and-endswith-instead-of-slicing">Use <code>.startswith()</code> and <code>.endswith()</code> instead of slicing.</a></li>
+      </ul>
+    </li>
+    <li><a href="#tips-and-tricks-to-help-ensure-your-code-follows-pep-8">Tips and Tricks to Help Ensure Your Code Follows PEP 8</a>
+      <ul>
+        <li><a href="#linters">Linters</a></li>
+        <li><a href="#autoformatters">Autoformatters</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Beautiful Python Code with PEP 8</h1>
+
+          <div class="article-style">
+            <p>Source: 
+<a href="https://realpython.com/python-pep8/" target="_blank" rel="noopener">How to Write Beautiful Python Code With PEP 8</a></p>
+<h2 id="naming-conventions">Naming Conventions</h2>
+<blockquote>
+<p>“Explicit is better than implicit.”
+— The Zen of Python</p>
+</blockquote>
+<p>‼️ Note: Never use l (\ell), O (zero), or I (capital i) single letter names as these can be mistaken for 1 and 0, depending on typeface:</p>
+<h3 id="naming-styles">Naming styles</h3>
+<p><img src="https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/Untitled.png" alt="Beautiful%20Python%20Code%20with%20PEP%208%20ad6a9a89c353410c813a83ebda6504c3/Untitled.png"></p>
+<h3 id="how-to-choose-names">How to choose names</h3>
+<p>The best way to name your objects in Python is to use <strong>descriptive</strong> names to make it clear what the object represents.</p>
+<p><strong>Always try to use the most concise but descriptive names possible.</strong></p>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+&gt;&gt;&gt; x = 'John Smith'
+&gt;&gt;&gt; y, z = x.split()
+&gt;&gt;&gt; print(z, y, sep=', ')
+'Smith, John'
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python">&gt;&gt;&gt; # Recommended
+&gt;&gt;&gt; name = 'John Smith'
+&gt;&gt;&gt; first_name, last_name = name.split()
+&gt;&gt;&gt; print(last_name, first_name, sep=', ')
+'Smith, John'
+
+</code></pre>
+<h2 id="code-layout">Code Layout</h2>
+<blockquote>
+<p>“Beautiful is better than ugly.”
+— The Zen of Python</p>
+</blockquote>
+<h3 id="blank-lines">Blank lines</h3>
+<p><strong>Surround top-level functions and classes with two blank lines</strong></p>
+<p>Example:</p>
+<pre><code class="language-python">class MyFirstClass:
+    pass
+
+class MySecondClass:
+    pass
+
+def top_level_function():
+    return None
+
+</code></pre>
+<p><strong>Surround method definitions inside classes with a single blank line.</strong></p>
+<p>Example:</p>
+<pre><code class="language-python">def first_method(self):
+    return None
+
+def second_method(self):
+    return None
+
+</code></pre>
+<p><strong>Use blank lines sparingly inside functions to show clear steps.</strong></p>
+<p>Example:</p>
+<pre><code class="language-python">def calculate_variance(number_list):
+    sum_list = 0
+    for number in number_list:
+        sum_list = sum_list + number
+    mean = sum_list / len(number_list)
+
+    sum_squares = 0
+    for number in number_list:
+        sum_squares = sum_squares + number**2
+    mean_squares = sum_squares / len(number_list)
+
+    return mean_squares - mean**2
+
+</code></pre>
+<h3 id="maximum-line-length-and-line-breaking">Maximum Line Length and Line Breaking</h3>
+<p><strong>Lines should be limited to 79 characters.</strong></p>
+<p>Outlines ways to allow statements to run over several lines:</p>
+<ul>
+<li>
+<p><strong>Assume line continuation if code is contained within parentheses, brackets, or braces:</strong></p>
+<pre><code class="language-python">def function(arg_one, arg_two,
+         arg_three, arg_four):
+    return arg_one
+
+</code></pre>
+</li>
+<li>
+<p><strong>Use backslashes to break lines if it is impossible to use implied continuation:</strong></p>
+<pre><code class="language-python">from mypkg import example1, \\
+    example2, example3
+
+</code></pre>
+</li>
+<li>
+<p><strong>if you can use implied continuation, then you should do so.</strong></p>
+<ul>
+<li>
+<p>If line breaking needs to occur around binary operators, like + and *, it should occur <strong>before</strong> the operator</p>
+<p>❌</p>
+<pre><code class="language-python"># Not Recommended
+total = (first_variable +
+         second_variable -
+         third_variable)
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+total = (first_variable
+         + second_variable
+         - third_variable)
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="indentation">Indentation</h2>
+<ul>
+<li>Use <strong>4</strong> consecutive spaces to indicate indentation.</li>
+<li>Prefer <strong>spaces over tabs</strong>.</li>
+</ul>
+<h3 id="indentation-following-line-breaks">Indentation Following Line Breaks</h3>
+<p>When you’re using line continuations to keep lines to under 79 characters, it is useful to use indentation to improve readability. It allows the reader to <strong>distinguish between two lines of code and a single line of code that spans two lines.</strong></p>
+<p>There are two styles of indentation you can use:</p>
+<ol>
+<li>
+<p>align the indented block with the opening delimiter:</p>
+<pre><code class="language-python">    def function(arg_one, arg_two,
+                 arg_three, arg_four):
+        return arg_one
+
+</code></pre>
+<p>Sometimes only 4 spaces are needed to align with the opening delimiter. This will often occur in if statements that span multiple lines as the <code>if</code>, space, and opening bracket make up 4 characters. In this case, it can be difficult to determine where the nested code block inside the if statement begins:</p>
+<p>Example:</p>
+<pre><code class="language-python">    x = 5
+    if (x &gt; 3 and
+        x &lt; 10):
+        print(x)
+
+</code></pre>
+<p>In this case, PEP 8 provides two alternatives to help improve readability:</p>
+<ul>
+<li>
+<p>Add a comment after the final condition.</p>
+<pre><code class="language-python">x = 5
+if (x &gt; 3 and
+    x &lt; 10):
+    # Both conditions satisfied
+    print(x)
+
+</code></pre>
+</li>
+<li>
+<p>Add extra indentation on the line continuation:</p>
+<pre><code class="language-python">x = 5
+if (x &gt; 3 and
+        x &lt; 10):
+    print(x)
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>hanging indent</strong>: You can use a hanging indent to visually represent a continuation of a line of code.</p>
+<p>Example:</p>
+<pre><code class="language-python">var = function(
+    arg_one, arg_two,
+    arg_three, arg_four)
+
+</code></pre>
+<p>‼️ When you’re using a hanging indent, <strong>there must not be any arguments on the first line</strong>.
+The following example is <strong>not</strong> PEP 8 compliant:</p>
+<pre><code class="language-python">var = function(arg_one, arg_two,
+    arg_three, arg_four)
+
+</code></pre>
+<ul>
+<li>
+<p>When using a hanging indent, <strong>add extra indentation</strong> to distinguish the continued line from code contained inside the function.</p>
+<p>❌</p>
+<pre><code class="language-python"># Not Recommended
+def function(
+   arg_one, arg_two,
+   arg_three, arg_four):
+   return arg_one
+
+</code></pre>
+<p>Instead, it’s better to use a double indent on the line continuation. This helps you to distinguish between function arguments and the function body, improving readability:</p>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+def function(
+        arg_one, arg_two,
+        arg_three, arg_four):
+    return arg_one
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="where-to-put-the-closing-brace">Where to Put the Closing Brace</h3>
+<p>Two options for the position of the closing brace in implied line continuations:</p>
+<ul>
+<li>
+<p>Line up the closing brace with the first non-whitespace character of the previous line:</p>
+<pre><code class="language-python">list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+    ]
+
+</code></pre>
+</li>
+<li>
+<p>Line up the closing brace with the first character of the line that starts the construct:</p>
+<pre><code class="language-python">list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+]
+
+</code></pre>
+</li>
+</ul>
+<p><strong>Consistency is key, try to stick to one of the above methods.</strong></p>
+<h2 id="comments-and-documentations">Comments and Documentations</h2>
+<p>See: 
+<a href="quiver:///notes/CE487BE2-FAC4-4997-A723-244CFC727EA2">Documenting Python Code</a></p>
+<h2 id="whitespace-in-expressions-and-statements">Whitespace in Expressions and Statements</h2>
+<blockquote>
+<p>“Sparse is better than dense.”— The Zen of Python</p>
+</blockquote>
+<h3 id="whitespace-around-binary-operators">Whitespace Around Binary Operators</h3>
+<p>Surround the following binary operators with a single space on either side:</p>
+<ul>
+<li>Assignment operators (<code>=</code>, <code>+=</code>, <code>-=</code>, and so forth)</li>
+<li>Comparisons (<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>. <code>&gt;=</code>, <code>&lt;=</code>) and (<code>is</code>, <code>is not</code>, <code>in</code>, <code>not in</code>)</li>
+<li>Booleans (<code>and</code>, <code>not</code>, <code>or</code>)</li>
+</ul>
+<p>‼️ <strong>Note</strong>:</p>
+<ul>
+<li>
+<p>When <code>=</code> is used to assign a default value to a function argument, do <strong>NOT</strong> surround it with spaces.</p>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+def function(default_parameter=5):
+    # ...
+
+</code></pre>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+def function(default_parameter = 5):
+    # ...
+
+</code></pre>
+</li>
+<li>
+<p>If there&rsquo;s more than one operator in a statement, <strong>only add whitespace around the operators with the lowest priority</strong>. especially when performing mathematical manipulation.</p>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+y = x**2 + 5
+z = (x+y) * (x-y)
+
+</code></pre>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+y = x ** 2 + 5
+z = (x + y) * (x - y)
+
+</code></pre>
+<ul>
+<li>
+<p>Apply this rule to <code>if</code> statements where there are multiple conditions:</p>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if x&gt;5 and x%2==0:
+    print('x is larger than 5 and divisible by 2!')
+
+</code></pre>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+if x &gt; 5 and x % 2 == 0:
+    print('x is larger than 5 and divisible by 2!')
+
+</code></pre>
+</li>
+<li>
+<p>In slices, colons act as a binary operators. Therefore, the rules outlined in the previous section apply, and there should be the <strong>same amount of whitespace</strong> either side. The following examples of list slices are valid:</p>
+</li>
+</ul>
+<pre><code class="language-python">list[3:4]
+
+# Treat the colon as the operator with lowest priority
+list[x+1 : x+2]
+
+# In an extended slice, both colons must be
+# surrounded by the same amount of whitespace
+list[3:4:5]
+list[x+1 : x+2 : x+3]
+
+# The space is omitted if a slice parameter is omitted
+list[x+1 : x+2 :]
+
+</code></pre>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>Surround most operator with whitespace, except:</p>
+<ul>
+<li>in function arguments</li>
+<li>combining multiple operators in one statement</li>
+</ul>
+<h2 id="programming-recommendations">Programming Recommendations</h2>
+<blockquote>
+<p>“Simple is better than complex.”— The Zen of Python</p>
+</blockquote>
+<p>🎯 Goal: readability and simplicity</p>
+<h3 id="dont-compare-boolean-values-to-true-or-false-using-the-equivalence-operator">Don’t compare boolean values to <code>True</code> or <code>False</code> using the equivalence operator.</h3>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+my_bool = 6 &gt; 5
+if my_bool == True:
+    return '6 is bigger than 5'
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if my_bool:
+    return '6 is bigger than 5'
+
+</code></pre>
+<h3 id="use-the-fact-that-empty-sequences-are-falsy-in-if-statements">Use the fact that empty sequences are falsy in <code>if</code> statements.</h3>
+<p>In Python any empty list, string, or tuple is 
+<a href="https://docs.python.org/3/library/stdtypes.html#truth-value-testing" target="_blank" rel="noopener">falsy</a>.</p>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+my_list = []
+if not len(my_list):
+    print('List is empty!')
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+my_list = []
+if not my_list:
+    print('List is empty!')
+
+</code></pre>
+<h3 id="use-is-not-rather-than-not--is-in-if-statements">Use <code>is not</code> rather than <code>not ... is</code> in <code>if</code> statements.</h3>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+if not x is None:
+    return 'x exists!'
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if x is not None:
+    return 'x exists!'
+
+</code></pre>
+<h3 id="dont-use-if-x-when-you-mean-if-x-is-not-none">Don’t use <code>if x:</code> when you mean <code>if x is not None:</code>.</h3>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+if arg:
+    # Do something with arg...
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if arg is not None:
+    # Do something with arg...
+
+</code></pre>
+<h3 id="use-startswith-and-endswith-instead-of-slicing">Use <code>.startswith()</code> and <code>.endswith()</code> instead of slicing.</h3>
+<ul>
+<li>
+<p>prefix</p>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+if word[:3] == 'cat':
+    print('The word starts with &quot;cat&quot;')
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if word.startswith('cat'):
+    print('The word starts with &quot;cat&quot;')
+
+</code></pre>
+</li>
+<li>
+<p>suffix</p>
+<p>❌</p>
+<pre><code class="language-python"># Not recommended
+if file_name[-3:] == 'jpg':
+    print('The file is a JPEG')
+
+</code></pre>
+<p>✅</p>
+<pre><code class="language-python"># Recommended
+if file_name.endswith('jpg'):
+    print('The file is a JPEG')
+
+</code></pre>
+</li>
+</ul>
+<h2 id="tips-and-tricks-to-help-ensure-your-code-follows-pep-8">Tips and Tricks to Help Ensure Your Code Follows PEP 8</h2>
+<p><strong>Never ignore PEP 8!!!</strong></p>
+<h3 id="linters">Linters</h3>
+<p>Linters are programs that analyze code and flag errors. They provide suggestions on how to fix the error.</p>
+<p>Best linters for Python code:</p>
+<ul>
+<li>
+<p><strong>
+<a href="https://pypi.org/project/pycodestyle/" target="_blank" rel="noopener"><code>pycodestyle</code></a></strong> is a tool to check your Python code against some of the style conventions in PEP 8.</p>
+<p>Install <code>pycodestyle</code> using <code>pip</code>:</p>
+<pre><code class="language-python">$ pip install pycodestyle
+</code></pre>
+</li>
+<li>
+<p><strong>
+<a href="https://pypi.org/project/flake8/" target="_blank" rel="noopener"><code>flake8</code></a></strong> is a tool that combines a debugger, <code>pyflakes</code>, with <code>pycodestyle</code>.</p>
+<p>Install <code>flake8</code> using <code>pip</code>:</p>
+<pre><code class="language-python">$ pip install flake8
+</code></pre>
+</li>
+</ul>
+<h3 id="autoformatters">Autoformatters</h3>
+<p>Autoformatters are programs that refactor your code to conform with PEP 8 automatically. Once such program is 
+<a href="https://pypi.org/project/black/" target="_blank" rel="noopener"><code>black</code></a>, which autoformats code following <em>most</em> of the rules in PEP 8.</p>
+<p>Install <code>black</code> using <code>pip</code>. It requires Python 3.6+ to run:</p>
+<pre><code class="language-bash">$ pip install black
+</code></pre>
+
+          </div>
+
+          
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/python/">Python</a>
+  
+  <a class="badge badge-light" href="/tag/best-practice/">Best practice</a>
+  
+</div>
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/notes/python/py-basics/args_and_kwargs/" rel="next">args and kwargs</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/notes/python/best-practice/documenting-py-code/" rel="prev">Documenting Python Code</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>Last updated on Jul 6, 2020</p>
+
+          
+
+
+
+
+
+          
+
+
+          
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/notes/python/best-practice/documenting-py-code/">Documenting Python Code</a></li>
+      
+      <li><a href="/notes/python/py-basics/args_and_kwargs/">args and kwargs</a></li>
+      
+      <li><a href="/notes/python/py-basics/zip/">zip</a></li>
+      
+      <li><a href="/notes/machine-learning/regression/linear-regression/">Linear Regression</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js" integrity="sha256-lyWCDMnMeZiXRi7Zl54sZGKYmgQs4izcT7+tKc+KUBk=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Best practice | Haobin Tan</title>
+    <link>https://eckotan0804.github.io/tag/best-practice/</link>
+      <atom:link href="https://eckotan0804.github.io/tag/best-practice/index.xml" rel="self" type="application/rss+xml" />
+    <description>Best practice</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Best practice</title>
+      <link>https://eckotan0804.github.io/tag/best-practice/</link>
+    </image>
+    
+    <item>
+      <title>Beautiful Python Code with PEP 8</title>
+      <link>https://eckotan0804.github.io/notes/python/best-practice/beautiful-py-code-with-pep8/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/python/best-practice/beautiful-py-code-with-pep8/</guid>
+      <description>&lt;p&gt;Source: 
+&lt;a href=&#34;https://realpython.com/python-pep8/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to Write Beautiful Python Code With PEP 8&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;naming-conventions&#34;&gt;Naming Conventions&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Explicit is better than implicit.”
+— The Zen of Python&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;‼️ Note: Never use l (\ell), O (zero), or I (capital i) single letter names as these can be mistaken for 1 and 0, depending on typeface:&lt;/p&gt;
+&lt;h3 id=&#34;naming-styles&#34;&gt;Naming styles&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/Untitled.png&#34; alt=&#34;Beautiful%20Python%20Code%20with%20PEP%208%20ad6a9a89c353410c813a83ebda6504c3/Untitled.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;how-to-choose-names&#34;&gt;How to choose names&lt;/h3&gt;
+&lt;p&gt;The best way to name your objects in Python is to use &lt;strong&gt;descriptive&lt;/strong&gt; names to make it clear what the object represents.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Always try to use the most concise but descriptive names possible.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+&amp;gt;&amp;gt;&amp;gt; x = &#39;John Smith&#39;
+&amp;gt;&amp;gt;&amp;gt; y, z = x.split()
+&amp;gt;&amp;gt;&amp;gt; print(z, y, sep=&#39;, &#39;)
+&#39;Smith, John&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; # Recommended
+&amp;gt;&amp;gt;&amp;gt; name = &#39;John Smith&#39;
+&amp;gt;&amp;gt;&amp;gt; first_name, last_name = name.split()
+&amp;gt;&amp;gt;&amp;gt; print(last_name, first_name, sep=&#39;, &#39;)
+&#39;Smith, John&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;code-layout&#34;&gt;Code Layout&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Beautiful is better than ugly.”
+— The Zen of Python&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;blank-lines&#34;&gt;Blank lines&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Surround top-level functions and classes with two blank lines&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class MyFirstClass:
+    pass
+
+class MySecondClass:
+    pass
+
+def top_level_function():
+    return None
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Surround method definitions inside classes with a single blank line.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def first_method(self):
+    return None
+
+def second_method(self):
+    return None
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Use blank lines sparingly inside functions to show clear steps.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def calculate_variance(number_list):
+    sum_list = 0
+    for number in number_list:
+        sum_list = sum_list + number
+    mean = sum_list / len(number_list)
+
+    sum_squares = 0
+    for number in number_list:
+        sum_squares = sum_squares + number**2
+    mean_squares = sum_squares / len(number_list)
+
+    return mean_squares - mean**2
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;maximum-line-length-and-line-breaking&#34;&gt;Maximum Line Length and Line Breaking&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Lines should be limited to 79 characters.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Outlines ways to allow statements to run over several lines:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Assume line continuation if code is contained within parentheses, brackets, or braces:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def function(arg_one, arg_two,
+         arg_three, arg_four):
+    return arg_one
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use backslashes to break lines if it is impossible to use implied continuation:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from mypkg import example1, \\
+    example2, example3
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;if you can use implied continuation, then you should do so.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If line breaking needs to occur around binary operators, like + and *, it should occur &lt;strong&gt;before&lt;/strong&gt; the operator&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not Recommended
+total = (first_variable +
+         second_variable -
+         third_variable)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+total = (first_variable
+         + second_variable
+         - third_variable)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;indentation&#34;&gt;Indentation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;4&lt;/strong&gt; consecutive spaces to indicate indentation.&lt;/li&gt;
+&lt;li&gt;Prefer &lt;strong&gt;spaces over tabs&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;indentation-following-line-breaks&#34;&gt;Indentation Following Line Breaks&lt;/h3&gt;
+&lt;p&gt;When you’re using line continuations to keep lines to under 79 characters, it is useful to use indentation to improve readability. It allows the reader to &lt;strong&gt;distinguish between two lines of code and a single line of code that spans two lines.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are two styles of indentation you can use:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;align the indented block with the opening delimiter:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    def function(arg_one, arg_two,
+                 arg_three, arg_four):
+        return arg_one
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sometimes only 4 spaces are needed to align with the opening delimiter. This will often occur in if statements that span multiple lines as the &lt;code&gt;if&lt;/code&gt;, space, and opening bracket make up 4 characters. In this case, it can be difficult to determine where the nested code block inside the if statement begins:&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    x = 5
+    if (x &amp;gt; 3 and
+        x &amp;lt; 10):
+        print(x)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this case, PEP 8 provides two alternatives to help improve readability:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Add a comment after the final condition.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;x = 5
+if (x &amp;gt; 3 and
+    x &amp;lt; 10):
+    # Both conditions satisfied
+    print(x)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add extra indentation on the line continuation:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;x = 5
+if (x &amp;gt; 3 and
+        x &amp;lt; 10):
+    print(x)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;hanging indent&lt;/strong&gt;: You can use a hanging indent to visually represent a continuation of a line of code.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;var = function(
+    arg_one, arg_two,
+    arg_three, arg_four)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;‼️ When you’re using a hanging indent, &lt;strong&gt;there must not be any arguments on the first line&lt;/strong&gt;.
+The following example is &lt;strong&gt;not&lt;/strong&gt; PEP 8 compliant:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;var = function(arg_one, arg_two,
+    arg_three, arg_four)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When using a hanging indent, &lt;strong&gt;add extra indentation&lt;/strong&gt; to distinguish the continued line from code contained inside the function.&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not Recommended
+def function(
+   arg_one, arg_two,
+   arg_three, arg_four):
+   return arg_one
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Instead, it’s better to use a double indent on the line continuation. This helps you to distinguish between function arguments and the function body, improving readability:&lt;/p&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+def function(
+        arg_one, arg_two,
+        arg_three, arg_four):
+    return arg_one
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;where-to-put-the-closing-brace&#34;&gt;Where to Put the Closing Brace&lt;/h3&gt;
+&lt;p&gt;Two options for the position of the closing brace in implied line continuations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Line up the closing brace with the first non-whitespace character of the previous line:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+    ]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Line up the closing brace with the first character of the line that starts the construct:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Consistency is key, try to stick to one of the above methods.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comments-and-documentations&#34;&gt;Comments and Documentations&lt;/h2&gt;
+&lt;p&gt;See: 
+&lt;a href=&#34;quiver:///notes/CE487BE2-FAC4-4997-A723-244CFC727EA2&#34;&gt;Documenting Python Code&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;whitespace-in-expressions-and-statements&#34;&gt;Whitespace in Expressions and Statements&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Sparse is better than dense.”— The Zen of Python&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;whitespace-around-binary-operators&#34;&gt;Whitespace Around Binary Operators&lt;/h3&gt;
+&lt;p&gt;Surround the following binary operators with a single space on either side:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assignment operators (&lt;code&gt;=&lt;/code&gt;, &lt;code&gt;+=&lt;/code&gt;, &lt;code&gt;-=&lt;/code&gt;, and so forth)&lt;/li&gt;
+&lt;li&gt;Comparisons (&lt;code&gt;==&lt;/code&gt;, &lt;code&gt;!=&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;. &lt;code&gt;&amp;gt;=&lt;/code&gt;, &lt;code&gt;&amp;lt;=&lt;/code&gt;) and (&lt;code&gt;is&lt;/code&gt;, &lt;code&gt;is not&lt;/code&gt;, &lt;code&gt;in&lt;/code&gt;, &lt;code&gt;not in&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Booleans (&lt;code&gt;and&lt;/code&gt;, &lt;code&gt;not&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‼️ &lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When &lt;code&gt;=&lt;/code&gt; is used to assign a default value to a function argument, do &lt;strong&gt;NOT&lt;/strong&gt; surround it with spaces.&lt;/p&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+def function(default_parameter=5):
+    # ...
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+def function(default_parameter = 5):
+    # ...
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If there&amp;rsquo;s more than one operator in a statement, &lt;strong&gt;only add whitespace around the operators with the lowest priority&lt;/strong&gt;. especially when performing mathematical manipulation.&lt;/p&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+y = x**2 + 5
+z = (x+y) * (x-y)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+y = x ** 2 + 5
+z = (x + y) * (x - y)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Apply this rule to &lt;code&gt;if&lt;/code&gt; statements where there are multiple conditions:&lt;/p&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if x&amp;gt;5 and x%2==0:
+    print(&#39;x is larger than 5 and divisible by 2!&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+if x &amp;gt; 5 and x % 2 == 0:
+    print(&#39;x is larger than 5 and divisible by 2!&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In slices, colons act as a binary operators. Therefore, the rules outlined in the previous section apply, and there should be the &lt;strong&gt;same amount of whitespace&lt;/strong&gt; either side. The following examples of list slices are valid:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;list[3:4]
+
+# Treat the colon as the operator with lowest priority
+list[x+1 : x+2]
+
+# In an extended slice, both colons must be
+# surrounded by the same amount of whitespace
+list[3:4:5]
+list[x+1 : x+2 : x+3]
+
+# The space is omitted if a slice parameter is omitted
+list[x+1 : x+2 :]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Surround most operator with whitespace, except:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;in function arguments&lt;/li&gt;
+&lt;li&gt;combining multiple operators in one statement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;programming-recommendations&#34;&gt;Programming Recommendations&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Simple is better than complex.”— The Zen of Python&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;🎯 Goal: readability and simplicity&lt;/p&gt;
+&lt;h3 id=&#34;dont-compare-boolean-values-to-true-or-false-using-the-equivalence-operator&#34;&gt;Don’t compare boolean values to &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt; using the equivalence operator.&lt;/h3&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+my_bool = 6 &amp;gt; 5
+if my_bool == True:
+    return &#39;6 is bigger than 5&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if my_bool:
+    return &#39;6 is bigger than 5&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;use-the-fact-that-empty-sequences-are-falsy-in-if-statements&#34;&gt;Use the fact that empty sequences are falsy in &lt;code&gt;if&lt;/code&gt; statements.&lt;/h3&gt;
+&lt;p&gt;In Python any empty list, string, or tuple is 
+&lt;a href=&#34;https://docs.python.org/3/library/stdtypes.html#truth-value-testing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;falsy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+my_list = []
+if not len(my_list):
+    print(&#39;List is empty!&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+my_list = []
+if not my_list:
+    print(&#39;List is empty!&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;use-is-not-rather-than-not--is-in-if-statements&#34;&gt;Use &lt;code&gt;is not&lt;/code&gt; rather than &lt;code&gt;not ... is&lt;/code&gt; in &lt;code&gt;if&lt;/code&gt; statements.&lt;/h3&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+if not x is None:
+    return &#39;x exists!&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if x is not None:
+    return &#39;x exists!&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dont-use-if-x-when-you-mean-if-x-is-not-none&#34;&gt;Don’t use &lt;code&gt;if x:&lt;/code&gt; when you mean &lt;code&gt;if x is not None:&lt;/code&gt;.&lt;/h3&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+if arg:
+    # Do something with arg...
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if arg is not None:
+    # Do something with arg...
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;use-startswith-and-endswith-instead-of-slicing&#34;&gt;Use &lt;code&gt;.startswith()&lt;/code&gt; and &lt;code&gt;.endswith()&lt;/code&gt; instead of slicing.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;prefix&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+if word[:3] == &#39;cat&#39;:
+    print(&#39;The word starts with &amp;quot;cat&amp;quot;&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if word.startswith(&#39;cat&#39;):
+    print(&#39;The word starts with &amp;quot;cat&amp;quot;&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;suffix&lt;/p&gt;
+&lt;p&gt;❌&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Not recommended
+if file_name[-3:] == &#39;jpg&#39;:
+    print(&#39;The file is a JPEG&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;✅&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Recommended
+if file_name.endswith(&#39;jpg&#39;):
+    print(&#39;The file is a JPEG&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tips-and-tricks-to-help-ensure-your-code-follows-pep-8&#34;&gt;Tips and Tricks to Help Ensure Your Code Follows PEP 8&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Never ignore PEP 8!!!&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;linters&#34;&gt;Linters&lt;/h3&gt;
+&lt;p&gt;Linters are programs that analyze code and flag errors. They provide suggestions on how to fix the error.&lt;/p&gt;
+&lt;p&gt;Best linters for Python code:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;
+&lt;a href=&#34;https://pypi.org/project/pycodestyle/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;pycodestyle&lt;/code&gt;&lt;/a&gt;&lt;/strong&gt; is a tool to check your Python code against some of the style conventions in PEP 8.&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;pycodestyle&lt;/code&gt; using &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ pip install pycodestyle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;
+&lt;a href=&#34;https://pypi.org/project/flake8/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;flake8&lt;/code&gt;&lt;/a&gt;&lt;/strong&gt; is a tool that combines a debugger, &lt;code&gt;pyflakes&lt;/code&gt;, with &lt;code&gt;pycodestyle&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;flake8&lt;/code&gt; using &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;$ pip install flake8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;autoformatters&#34;&gt;Autoformatters&lt;/h3&gt;
+&lt;p&gt;Autoformatters are programs that refactor your code to conform with PEP 8 automatically. Once such program is 
+&lt;a href=&#34;https://pypi.org/project/black/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;black&lt;/code&gt;&lt;/a&gt;, which autoformats code following &lt;em&gt;most&lt;/em&gt; of the rules in PEP 8.&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;black&lt;/code&gt; using &lt;code&gt;pip&lt;/code&gt;. It requires Python 3.6+ to run:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pip install black
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Documenting Python Code</title>
+      <link>https://eckotan0804.github.io/notes/python/best-practice/documenting-py-code/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/python/best-practice/documenting-py-code/</guid>
+      <description>&lt;p&gt;Source: 
+&lt;a href=&#34;https://realpython.com/documenting-python-code/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documenting Python Code: A Complete Guide&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;commenting-vs-documenting-code&#34;&gt;Commenting vs. Documenting Code&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Audience&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Commenting&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Purpose and design of code&lt;/td&gt;
+&lt;td&gt;Maintainers and developers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Documenting&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Use and functionality of code&lt;/td&gt;
+&lt;td&gt;Users&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;commenting-code&#34;&gt;Commenting Code&lt;/h2&gt;
+&lt;p&gt;Comments are created in Python using the pound sign (&lt;code&gt;#&lt;/code&gt;) and should be &lt;strong&gt;brief statements no longer than a few sentences&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def hello_world():
+  # A simple comment preceding a simple print statement
+  print(&amp;quot;Hello World!&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;According to 
+&lt;a href=&#34;http://pep8.org/#maximum-line-length&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PEP 8&lt;/a&gt;, comments should have a &lt;strong&gt;maximum length of 72&lt;/strong&gt; characters. This is true even if your project changes the max line length to be greater than the recommended 80 characters.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def hello_long_world():
+    # A very long statement that just goes on and on and on and on and
+    # never ends until after it&#39;s reached the 80 char limit
+    print(&amp;quot;Hellooooooooooooooooooooooooooooooooooooooooooooooooooooooo World&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;purpose-of-commenting-code&#34;&gt;Purpose of Commenting Code&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Planning and reviewing&lt;/strong&gt;
+When developing new portion of code, first use comments as a way of planning or outlineing that section of code. &lt;strong&gt;Remember to remove these comments once the actual coding has been implemented and reviewed/tested&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def new_function():
+  # Step 1
+  # Step 2
+  # Step 3
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Code description&lt;/strong&gt;
+Explain the intent of specific sections of code&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Algorithmic description&lt;/strong&gt;
+When algorithms are used, especially complicated ones, it can be useful to explain how the algorithm works or how it’s implemented within your code.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Using quick sort for performance gains
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tagging:&lt;/strong&gt;
+The use of tagging can be used to label specific sections of code where known issues or areas of improvement are located.
+Some examples are: &lt;code&gt;BUG&lt;/code&gt;, &lt;code&gt;FIXME&lt;/code&gt;, and &lt;code&gt;TODO&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# TODO: Add condition for when val is None### 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;rules-of-commenting&#34;&gt;Rules of Commenting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Should be kept brief and focused&lt;/li&gt;
+&lt;li&gt;Avoid using long comments when possible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Essential rules as 
+&lt;a href=&#34;https://blog.codinghorror.com/when-good-comments-go-bad/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;suggested by Jeff Atwood&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep comments as close to the code being described as possible.&lt;/li&gt;
+&lt;li&gt;Don’t use complex formatting (such as tables or ASCII figures).&lt;/li&gt;
+&lt;li&gt;Don’t include redundant information. Assume the reader of the code has a basic understanding of programming principles and language syntax.&lt;/li&gt;
+&lt;li&gt;Design your code to comment itself. 💪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;commenting-code-via-type-hinting-python-35&#34;&gt;Commenting Code via Type Hinting (Python 3.5+)&lt;/h3&gt;
+&lt;p&gt;Type hinting was added to Python 3.5 and is an additional form to help the readers of your code.&lt;/p&gt;
+&lt;p&gt;Example&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def hello_name(name: str) -&amp;gt; str:
+  return (&amp;quot;Hello {name}&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can immediately tell that&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the function expects the input &lt;code&gt;name&lt;/code&gt; to be of a type &lt;code&gt;str&lt;/code&gt;, or string.&lt;/li&gt;
+&lt;li&gt;the expected output of the function will be of a type &lt;code&gt;str&lt;/code&gt;, or string, as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;documenting-code-base-using-docstrings&#34;&gt;Documenting Code Base using Docstrings&lt;/h2&gt;
+&lt;h3 id=&#34;docstings-background&#34;&gt;Docstings Background&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Docstrings are built-in strings that, when configured correctly, can help your users and yourself with your project’s documentation.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Python also has the built-in function &lt;code&gt;help()&lt;/code&gt; that prints out the objects docstring to the console.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def say_hello(name):
+  &amp;quot;&amp;quot;&amp;quot;A simple function that says hello&amp;quot;&amp;quot;&amp;quot;
+  print(f&amp;quot;Hello {name})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; help(say_hello)
+Help on function say_hello in module __main__:
+
+say_hello(name)
+    A simple function that says hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;docstring-types&#34;&gt;Docstring Types&lt;/h3&gt;
+&lt;p&gt;Docstring conventions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Are described within 
+&lt;a href=&#34;https://www.python.org/dev/peps/pep-0257/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PEP 257&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Purpose: provide your users with a brief overview of the object.&lt;/li&gt;
+&lt;li&gt;Should be kept concise enough to be easy to maintain but still be elaborate enough for new users to understand their purpose and how to use the documented object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;In all cases, the docstrings should use the triple-double quote (&lt;code&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;) string format.&lt;/strong&gt; This should be done whether the docstring is multi-lined or not.&lt;/p&gt;
+&lt;p&gt;At a bare minimum, a docstring should be a quick summary of whatever is it you’re describing and should be contained within a single line:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;quot;&amp;quot;&amp;quot;This is a quick summary line used as a description of the object.&amp;quot;&amp;quot;&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Multi-lined docstrings are used to further elaborate on the object beyond the summary. All multi-lined docstrings have the following parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A one-line summary line&lt;/li&gt;
+&lt;li&gt;A blank line proceeding the summary&lt;/li&gt;
+&lt;li&gt;Any further elaboration for the docstring&lt;/li&gt;
+&lt;li&gt;Another blank line&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;quot;&amp;quot;&amp;quot;This is the summary line
+
+This is the further elaboration of the docstring. Within this section,
+you can elaborate further on details as appropriate for the situation.
+Notice that the summary and the elaboration is separated by a blank new
+line.
+&amp;quot;&amp;quot;&amp;quot;
+
+# Notice the blank line above. Code should continue on this line.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All docstrings should have the same &lt;strong&gt;max character length as comments (72 characters).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Three major categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Class Docstrings:&lt;/strong&gt; Class and class methods&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package and Module Docstrings:&lt;/strong&gt; Package, modules, and functions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Script Docstrings:&lt;/strong&gt; Script and functions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;class-docstrings&#34;&gt;Class Docstrings&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class SimpleClass:
+    &amp;quot;&amp;quot;&amp;quot;Class docstrings go here.&amp;quot;&amp;quot;&amp;quot;
+
+    def say_hello(self, name: str):
+        &amp;quot;&amp;quot;&amp;quot;Class method docstrings go here.&amp;quot;&amp;quot;&amp;quot;
+
+        print(f&#39;Hello {name}&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Class docstrings should contain the following information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A brief summary of its purpose and behavior&lt;/li&gt;
+&lt;li&gt;Any public methods, along with a brief description&lt;/li&gt;
+&lt;li&gt;Any class properties (attributes)&lt;/li&gt;
+&lt;li&gt;Anything related to the interface for subclassers, if the class is intended to be subclassed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The class constructor parameters should be documented within the &lt;code&gt;__init__&lt;/code&gt; class method docstring.&lt;/p&gt;
+&lt;p&gt;Individual methods should be documented using their individual docstrings. Class method docstrings should contain the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A brief description of what the method is and what it’s used for&lt;/li&gt;
+&lt;li&gt;Any arguments (both required and optional) that are passed including keyword arguments&lt;/li&gt;
+&lt;li&gt;Label any arguments that are considered optional or have a default value&lt;/li&gt;
+&lt;li&gt;Any side effects that occur when executing the method&lt;/li&gt;
+&lt;li&gt;Any exceptions that are raised&lt;/li&gt;
+&lt;li&gt;Any restrictions on when the method can be called&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    &amp;quot;&amp;quot;&amp;quot;
+    A class used to represent an Animal
+
+    ...
+
+    Attributes
+    ----------
+    says_str : str
+        a formatted string to print out what the animal says
+    name : str
+        the name of the animal
+    sound : str
+        the sound that the animal makes
+    num_legs : int
+        the number of legs the animal has (default 4)
+
+    Methods
+    -------
+    says(sound=None)
+        Prints the animals name and what sound it makes
+    &amp;quot;&amp;quot;&amp;quot;
+
+    says_str = &amp;quot;A {name} says {sound}&amp;quot;
+
+    def __init__(self, name, sound, num_legs=4):
+        &amp;quot;&amp;quot;&amp;quot;
+        Parameters
+        ----------
+        name : str
+            The name of the animal
+        sound : str
+            The sound the animal makes
+        num_legs : int, optional
+            The number of legs the animal (default is 4)
+        &amp;quot;&amp;quot;&amp;quot;
+
+        self.name = name
+        self.sound = sound
+        self.num_legs = num_legs
+
+    def says(self, sound=None):
+        &amp;quot;&amp;quot;&amp;quot;Prints what the animals name is and what sound it makes.
+
+        If the argument `sound` isn&#39;t passed in, the default Animal
+        sound is used.
+
+        Parameters
+        ----------
+        sound : str, optional
+            The sound the animal makes (default is None)
+
+        Raises
+        ------
+        NotImplementedError
+            If no sound is set for the animal or passed in as a
+            parameter.
+        &amp;quot;&amp;quot;&amp;quot;
+
+        if self.sound is None and sound is None:
+            raise NotImplementedError(&amp;quot;Silent Animals are not supported!&amp;quot;)
+
+        out_sound = self.sound if sound is None else sound
+        print(self.says_str.format(name=self.name, sound=out_sound))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-and-module-docstrings&#34;&gt;Package and Module Docstrings&lt;/h4&gt;
+&lt;p&gt;Package Docstrings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Should be placed at the top of the package’s &lt;code&gt;__init__.py&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;Should list the modules and sub-packages that are exported by the package&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Module Docstrings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Placed at the top of the file even before any imports&lt;/li&gt;
+&lt;li&gt;Should include:
+&lt;ul&gt;
+&lt;li&gt;A brief description of the module and its purpose&lt;/li&gt;
+&lt;li&gt;A list of any classes, exception, functions, and any other objects exported by the module&lt;/li&gt;
+&lt;li&gt;Docstring for a module function should include the same items as a class method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;script-docstrings&#34;&gt;Script Docstrings&lt;/h4&gt;
+&lt;p&gt;Scripts: single file executables run from the console.&lt;/p&gt;
+&lt;p&gt;Docstrings for scripts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Placed at the &lt;strong&gt;top of the file&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;should be documented well enough for users to be able to have a sufficient understanding of how to use the script&lt;/li&gt;
+&lt;li&gt;Should be usable for its “usage” message, when the user incorrectly passes in a parameter or uses the &lt;code&gt;-h&lt;/code&gt; option&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Any custom or third-party imports should be listed within the docstrings to allow users to know which packages may be required for running the script&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Spreadsheet Column Printer
+
+This script allows the user to print to the console all columns in the
+spreadsheet. It is assumed that the first row of the spreadsheet is the
+location of the columns.
+
+This tool accepts comma separated value files (.csv) as well as excel
+(.xls, .xlsx) files.
+
+This script requires that `pandas` be installed within the Python
+environment you are running this script in.
+
+This file can also be imported as a module and contains the following
+functions:
+
+    * get_spreadsheet_cols - returns the column headers of the file
+    * main - the main function of the script
+&amp;quot;&amp;quot;&amp;quot;
+
+import argparse
+
+import pandas as pd
+
+
+def get_spreadsheet_cols(file_loc, print_cols=False):
+    &amp;quot;&amp;quot;&amp;quot;Gets and prints the spreadsheet&#39;s header columns
+
+    Parameters
+    ----------
+    file_loc : str
+        The file location of the spreadsheet
+    print_cols : bool, optional
+        A flag used to print the columns to the console (default is
+        False)
+
+    Returns
+    -------
+    list
+        a list of strings used that are the header columns
+    &amp;quot;&amp;quot;&amp;quot;
+
+    file_data = pd.read_excel(file_loc)
+    col_headers = list(file_data.columns.values)
+
+    if print_cols:
+        print(&amp;quot;\n&amp;quot;.join(col_headers))
+
+    return col_headers
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        &#39;input_file&#39;,
+        type=str,
+        help=&amp;quot;The spreadsheet file to pring the columns of&amp;quot;
+    )
+    args = parser.parse_args()
+    get_spreadsheet_cols(args.input_file, print_cols=True)
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    main()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;docstring-formats&#34;&gt;Docstring Formats&lt;/h3&gt;
+&lt;p&gt;Some of the most common formats are the following:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Formatting Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Supported by Sphynx&lt;/th&gt;
+&lt;th&gt;Formal Specification&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;a href=&#34;https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google docstrings&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Google’s recommended form of documentation&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;a href=&#34;http://docutils.sourceforge.net/rst.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reStructured Text&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Official Python documentation standard; Not beginner friendly but feature rich&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;a href=&#34;https://numpydoc.readthedocs.io/en/latest/format.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NumPy/SciPy docstrings&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;NumPy’s combination of reStructured and Google Docstrings&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;a href=&#34;http://epydoc.sourceforge.net/epytext.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Epytext&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A Python adaptation of Epydoc; Great for Java developers&lt;/td&gt;
+&lt;td&gt;Not officially&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The selection of the docstring format is up to you, but you should stick with the same format throughout your document/project. The following are examples of each type to give you an idea of how each documentation format looks.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1461 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Haobin Tan">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Computer Science Student">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://eckotan0804.github.io/notes/python/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/notes/python/index.xml" type="application/rss+xml" title="Haobin Tan">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://eckotan0804.github.io/notes/python/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Haobin Tan">
+  <meta property="og:url" content="https://eckotan0804.github.io/notes/python/">
+  <meta property="og:title" content="Getting Started | Haobin Tan">
+  <meta property="og:description" content="Computer Science Student"><meta property="og:image" content="https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2020-07-06T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Getting Started | Haobin Tan</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Haobin Tan</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Haobin Tan</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/notes/"><span>Notes</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item active">
+    <a class="docs-toc-link" href="/notes/python/">Getting Started</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/notes/python/py-basics/args_and_kwargs/">Python Basics</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/notes/python/py-basics/args_and_kwargs/">args and kwargs</a>
+      </li>
+      
+      <li >
+        <a href="/notes/python/py-basics/zip/">zip</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/notes/python/best-practice/beautiful-py-code-with-pep8/">Best Practice</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/notes/python/best-practice/beautiful-py-code-with-pep8/">Beautiful Python Code with PEP 8</a>
+      </li>
+      
+      <li >
+        <a href="/notes/python/best-practice/documenting-py-code/">Documenting Python Code</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#source">Source</a></li>
+    <li><a href="#operators">Operators</a>
+      <ul>
+        <li><a href="#identity-and-membership">Identity and Membership</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-in-types">Built-in Types</a>
+      <ul>
+        <li><a href="#complex-numbers">Complex Numbers</a></li>
+        <li><a href="#string-type">String Type</a></li>
+        <li><a href="#none-type">None Type</a></li>
+        <li><a href="#boolean">Boolean</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-in-data-structures">Built-In Data Structures</a></li>
+    <li><a href="#defining-and-using-functions">Defining and Using Functions</a>
+      <ul>
+        <li><a href="#args-and-kwargs"><code>*args</code> and <code>**kwargs</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#iterators">Iterators</a>
+      <ul>
+        <li><a href="#enumerate"><code>enumerate</code></a></li>
+        <li><a href="#zip"><code>zip</code></a></li>
+        <li><a href="#map-and-filter"><code>map</code> and <code>filter</code></a></li>
+        <li><a href="#iterators-as-function-arguments">Iterators as function arguments</a></li>
+        <li><a href="#specialized-iterators-itertools">Specialized Iterators: <code>itertools</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#list-comprehensions">List Comprehensions</a></li>
+    <li><a href="#generators">Generators</a>
+      <ul>
+        <li><a href="#list-comprehensions-use-square-brackets-while-generator-expressions-use-parentheses"><strong>List comprehensions use square brackets, while generator expressions use parentheses</strong></a></li>
+        <li><a href="#a-list-is-a-collection-of-values-while-a-generator-is-a-recipe-for-producing-values"><strong>A list is a collection of values, while a generator is a recipe for producing values</strong></a></li>
+        <li><a href="#a-list-can-be-iterated-multiple-times-a-generator-expression-is-single-use">A list can be iterated multiple times; a generator expression is single-use</a></li>
+        <li><a href="#generator-functions-using-yield">Generator Functions: Using <code>yield</code></a></li>
+        <li><a href="#example-prime-number-generator">Example: Prime Number Generator</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Getting Started</h1>
+
+          <div class="article-style">
+            <h2 id="source">Source</h2>
+<p>This is the summary of the book &ldquo;A Whirlwind Tour of Python&rdquo; by <em>Jake VanderPlas</em>.</p>
+<p>You can view it in</p>
+<ul>
+<li>nbviewer: 
+<a href="https://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb" target="_blank" rel="noopener">A whirlwind Tour of Python</a>, or</li>
+<li>Github: 
+<a href="https://github.com/jakevdp/WhirlwindTourOfPython" target="_blank" rel="noopener">A whirlwind Tour of Python</a></li>
+</ul>
+<pre><code class="language-python">import this
+</code></pre>
+<pre><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+</code></pre>
+<h2 id="operators">Operators</h2>
+<h3 id="identity-and-membership">Identity and Membership</h3>
+<p>The identity operators, <code>is</code> and <code>is not</code> check for <strong>object identity</strong>. Object identity is different than equality.</p>
+<pre><code class="language-python">a = [1, 2, 3]
+b = [1, 2, 3]
+</code></pre>
+<pre><code class="language-python">a == b
+</code></pre>
+<pre><code>True
+</code></pre>
+<pre><code class="language-python">a is b
+</code></pre>
+<pre><code>False
+</code></pre>
+<pre><code class="language-python">1 in a
+</code></pre>
+<pre><code>True
+</code></pre>
+<pre><code class="language-python">4 in a
+</code></pre>
+<pre><code>False
+</code></pre>
+<h2 id="built-in-types">Built-in Types</h2>
+<p>Python&rsquo;s simple types:</p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="right">Example</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><code>int</code></td>
+<td align="right"><code>x = 1</code></td>
+<td align="right">integers (i.e., whole numbers)</td>
+</tr>
+<tr>
+<td align="right"><code>float</code></td>
+<td align="right"><code>x = 1.0</code></td>
+<td align="right">floating-point numbers (i.e., real numbers)</td>
+</tr>
+<tr>
+<td align="right"><code>complex</code></td>
+<td align="right"><code>x = 1 + 2j</code></td>
+<td align="right">Complex numbers (i.e., numbers with real and imaginary part)</td>
+</tr>
+<tr>
+<td align="right"><code>bool</code></td>
+<td align="right"><code>x = True</code></td>
+<td align="right">Boolean: True/False values</td>
+</tr>
+<tr>
+<td align="right"><code>str</code></td>
+<td align="right"><code>x = 'abc'</code></td>
+<td align="right">String: characters or text</td>
+</tr>
+<tr>
+<td align="right"><code>NoneType</code></td>
+<td align="right"><code>x = None</code></td>
+<td align="right">Special object indicating nulls</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complex-numbers">Complex Numbers</h3>
+<pre><code class="language-python">complex(1, 2)
+</code></pre>
+<pre><code>(1+2j)
+</code></pre>
+<p>Alternatively, we can use the &ldquo;<code>j</code>&rdquo; suffix in expressions to indicate the imaginary part:</p>
+<pre><code class="language-python">1 + 2j
+</code></pre>
+<pre><code>(1+2j)
+</code></pre>
+<pre><code class="language-python">c = 3 + 4j
+</code></pre>
+<pre><code class="language-python">c.real
+</code></pre>
+<pre><code>3.0
+</code></pre>
+<pre><code class="language-python">c.imag
+</code></pre>
+<pre><code>4.0
+</code></pre>
+<pre><code class="language-python">c.conjugate()
+</code></pre>
+<pre><code>(3-4j)
+</code></pre>
+<pre><code class="language-python">abs(c)
+</code></pre>
+<pre><code>5.0
+</code></pre>
+<h3 id="string-type">String Type</h3>
+<pre><code class="language-python">msg = &quot;what do you like?&quot; # double quotes
+response = 'spam' # single quotes
+</code></pre>
+<pre><code class="language-python"># length
+len(response)
+</code></pre>
+<pre><code>4
+</code></pre>
+<pre><code class="language-python"># Upper/lower case
+response.upper()
+</code></pre>
+<pre><code>'SPAM'
+</code></pre>
+<pre><code class="language-python"># Capitalize, see also str.title()
+msg.capitalize()
+</code></pre>
+<pre><code>'What do you like?'
+</code></pre>
+<pre><code class="language-python"># concatenation with +
+msg + response
+</code></pre>
+<pre><code>'what do you like?spam'
+</code></pre>
+<pre><code class="language-python"># multiplication is multiple concatenation
+5 * response
+</code></pre>
+<pre><code>'spamspamspamspamspam'
+</code></pre>
+<pre><code class="language-python"># Access individual characters (zero-based (list) indexing)
+</code></pre>
+<pre><code class="language-python">msg[0]
+</code></pre>
+<pre><code>'w'
+</code></pre>
+<h3 id="none-type">None Type</h3>
+<p>Most commonly used as the default return value of a function</p>
+<pre><code class="language-python">type(None)
+</code></pre>
+<pre><code>NoneType
+</code></pre>
+<pre><code class="language-python">ret_val = print(&quot;abc&quot;)
+</code></pre>
+<pre><code>abc
+</code></pre>
+<pre><code class="language-python">print(ret_val)
+</code></pre>
+<pre><code>None
+</code></pre>
+<p>Likewise, any function in Python with no return value is, in reality, returning <code>None</code>.</p>
+<h3 id="boolean">Boolean</h3>
+<p>Booleans can also be constructed using the <code>bool()</code> object constructor: values of any other type can be converted to Boolean via predictable rules</p>
+<ul>
+<li>
+<p>any numeric type is False if equal to zero, and True otherwise</p>
+</li>
+<li>
+<p>The Boolean conversion of <code>None</code> is always False</p>
+</li>
+<li>
+<p>For strings, <code>bool(s)</code> is False for empty strings and True otherwise</p>
+</li>
+<li>
+<p>For sequences, the Boolean representation is False for empty sequences and True for any other sequences</p>
+</li>
+</ul>
+<pre><code class="language-python"># numeric type
+bool(0)
+</code></pre>
+<pre><code>False
+</code></pre>
+<pre><code class="language-python">bool(1)
+</code></pre>
+<pre><code>True
+</code></pre>
+<pre><code class="language-python">a = 0
+if not a:
+    print(&quot;a&quot;)
+</code></pre>
+<pre><code>a
+</code></pre>
+<pre><code class="language-python">bool(None)
+</code></pre>
+<pre><code>False
+</code></pre>
+<pre><code class="language-python">bool(&quot;&quot;)
+</code></pre>
+<pre><code>False
+</code></pre>
+<pre><code class="language-python">bool(&quot;Hello World!&quot;)
+</code></pre>
+<pre><code>True
+</code></pre>
+<pre><code class="language-python">bool([])
+</code></pre>
+<pre><code>False
+</code></pre>
+<pre><code class="language-python">bool([1])
+</code></pre>
+<pre><code>True
+</code></pre>
+<pre><code class="language-python">l_1 = [1, 2, 3]
+l_2 = []
+
+def is_empty(l):
+    if l:
+        print(&quot;not empty&quot;)
+        return False
+    else:
+        print(&quot;empty&quot;)
+        return True
+</code></pre>
+<pre><code class="language-python">is_empty([1, 2, 3])
+</code></pre>
+<pre><code>not empty
+
+
+
+
+
+False
+</code></pre>
+<pre><code class="language-python">is_empty([])
+</code></pre>
+<pre><code>empty
+
+
+
+
+
+True
+</code></pre>
+<h2 id="built-in-data-structures">Built-In Data Structures</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Type Name</th>
+<th align="right">Example</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><code>list</code></td>
+<td align="right"><code>[1, 2, 3]</code></td>
+<td align="right">Ordered collection</td>
+</tr>
+<tr>
+<td align="right"><code>tuple</code></td>
+<td align="right"><code>(1, 2, 3)</code></td>
+<td align="right">Immutable ordered collection</td>
+</tr>
+<tr>
+<td align="right"><code>dict</code></td>
+<td align="right"><code>{'a':1, 'b':2, 'c':3}</code></td>
+<td align="right">Unordered (key,value) mapping</td>
+</tr>
+<tr>
+<td align="right"><code>set</code></td>
+<td align="right"><code>{1, 2, 3}</code></td>
+<td align="right">Unordered collection of unique values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="defining-and-using-functions">Defining and Using Functions</h2>
+<h3 id="args-and-kwargs"><code>*args</code> and <code>**kwargs</code></h3>
+<p>Write a function in which we don&rsquo;t initially know how many arguments the user will pass.</p>
+<ul>
+<li>
+<p><code>*args</code>:</p>
+<ul>
+<li>
+<p><code>*</code> before a variable means &ldquo;expand this as a sequence&rdquo;</p>
+</li>
+<li>
+<p><code>args</code> is short for &ldquo;arguments&rdquo;</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>**kwargs</code></p>
+<ul>
+<li>
+<p><code>**</code> before a variable means &ldquo;expand this as a dictionary&rdquo;</p>
+</li>
+<li>
+<p><code>kwargs</code> is short for &ldquo;keyword arguments&rdquo;</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">def catch_all(*args, **kwargs):
+    print(&quot;args = &quot;, args)
+    print(&quot;kwargs = &quot;, kwargs)
+</code></pre>
+<pre><code class="language-python">catch_all(1, 2, 3, a=4, b=5)
+</code></pre>
+<pre><code>args =  (1, 2, 3)
+kwargs =  {'a': 4, 'b': 5}
+</code></pre>
+<pre><code class="language-python">inputs = (1, 2, 3)
+keywords = {&quot;one&quot;: 1, &quot;two&quot;: 2}
+
+catch_all(*inputs, **keywords)
+</code></pre>
+<pre><code>args =  (1, 2, 3)
+kwargs =  {'one': 1, 'two': 2}
+</code></pre>
+<h2 id="iterators">Iterators</h2>
+<h3 id="enumerate"><code>enumerate</code></h3>
+<p>&ldquo;Pythonic&rdquo; way to enumerate the indices and values in a list.</p>
+<pre><code class="language-python">l = [2, 4, 6, 8, 10]
+for i, val in enumerate(l):
+    print(&quot;index: {}, value: {}&quot;.format(i, val))
+</code></pre>
+<pre><code>index: 0, value: 2
+index: 1, value: 4
+index: 2, value: 6
+index: 3, value: 8
+index: 4, value: 10
+</code></pre>
+<h3 id="zip"><code>zip</code></h3>
+<p>Iterate over multiple lists simultaneously</p>
+<pre><code class="language-python">L = [1, 3, 5, 7, 9]
+R = [2, 4, 6, 8, 10]
+
+for l_val, r_val in zip(L, R):
+    print(&quot;L: {}, R: {}&quot;.format(l_val, r_val))
+</code></pre>
+<pre><code>L: 1, R: 2
+L: 3, R: 4
+L: 5, R: 6
+L: 7, R: 8
+L: 9, R: 10
+</code></pre>
+<pre><code class="language-python">for i, val in enumerate(zip(L, R)):
+    print(&quot;Index: {}, L: {}, R: {}&quot;.format(i, val[0], val[1]))
+</code></pre>
+<pre><code>Index: 0, L: 1, R: 2
+Index: 1, L: 3, R: 4
+Index: 2, L: 5, R: 6
+Index: 3, L: 7, R: 8
+Index: 4, L: 9, R: 10
+</code></pre>
+<h3 id="map-and-filter"><code>map</code> and <code>filter</code></h3>
+<p><code>map</code>: takes a function and applies it to the values in an iterator</p>
+<pre><code class="language-python">func = lambda x: x + 1
+l = [1, 2, 3, 4, 5]
+</code></pre>
+<pre><code class="language-python">list(map(func, l))
+</code></pre>
+<pre><code>[2, 3, 4, 5, 6]
+</code></pre>
+<p><code>filter</code>: only passes-through values for which the filter function evaluates to <code>True</code></p>
+<pre><code class="language-python">is_even = lambda x: x % 2 == 0
+list(filter(is_even, l))
+</code></pre>
+<pre><code>[2, 4]
+</code></pre>
+<h3 id="iterators-as-function-arguments">Iterators as function arguments</h3>
+<p>It turns out that the <code>*args</code> syntax works not just with sequences, but with any iterator:</p>
+<pre><code class="language-python">print(*range(5))
+</code></pre>
+<pre><code>0 1 2 3 4
+</code></pre>
+<pre><code class="language-python">list(range(3))
+</code></pre>
+<pre><code>[0, 1, 2]
+</code></pre>
+<pre><code class="language-python">print(*map(lambda x: x + 1, range(3)))
+</code></pre>
+<pre><code>1 2 3
+</code></pre>
+<pre><code class="language-python">L1 = [1, 2, 3, 4]
+L2 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+
+z = zip(L1, L2)
+print(*z)
+</code></pre>
+<pre><code>(1, 'a') (2, 'b') (3, 'c') (4, 'd')
+</code></pre>
+<pre><code class="language-python">z = zip(L1, L2)
+new_L1, new_L2 = zip(*z)
+new_L1
+</code></pre>
+<pre><code>(1, 2, 3, 4)
+</code></pre>
+<pre><code class="language-python">new_L2
+</code></pre>
+<pre><code>('a', 'b', 'c', 'd')
+</code></pre>
+<h3 id="specialized-iterators-itertools">Specialized Iterators: <code>itertools</code></h3>
+<pre><code class="language-python">from itertools import permutations
+
+p = permutations(range(3))
+print(*p)
+</code></pre>
+<pre><code>(0, 1, 2) (0, 2, 1) (1, 0, 2) (1, 2, 0) (2, 0, 1) (2, 1, 0)
+</code></pre>
+<pre><code class="language-python">p
+</code></pre>
+<pre><code>&lt;itertools.permutations at 0x10fb32710&gt;
+</code></pre>
+<h2 id="list-comprehensions">List Comprehensions</h2>
+<pre><code class="language-python">l = [1, 2, 3, 4, 5]
+</code></pre>
+<pre><code class="language-python">[2 * el for el in l if el &gt; 3]
+</code></pre>
+<pre><code>[8, 10]
+</code></pre>
+<p>which is equivalent to the loop syntax, but list comprehension is much easier to write and to understand!</p>
+<pre><code class="language-python">L = []
+for el in l:
+    if el &gt; 3:
+        L.append(2 * el)
+        
+L
+</code></pre>
+<pre><code>[8, 10]
+</code></pre>
+<pre><code class="language-python">[(i, j) for i in range(2) for j in range(3)]
+</code></pre>
+<pre><code>[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]
+</code></pre>
+<pre><code class="language-python">print(*range(10))
+
+# Leave out multiples of 3, and negate all multiples of 2
+[val if val % 2 else -val for val in range(10) if val % 3]
+</code></pre>
+<pre><code>0 1 2 3 4 5 6 7 8 9
+
+
+
+
+
+[1, -2, -4, 5, 7, -8]
+</code></pre>
+<pre><code class="language-python">L = []
+
+for val in range(10):
+    if val % 3 != 0: # conditional on iterator 
+        # conditional on value
+        if val % 2 != 0:
+            L.append(val)
+        else:
+            L.append(-val)
+
+L
+</code></pre>
+<pre><code>[1, -2, -4, 5, 7, -8]
+</code></pre>
+<pre><code class="language-python">{n * 2 for n in range(5)}
+</code></pre>
+<pre><code>{0, 2, 4, 6, 8}
+</code></pre>
+<pre><code class="language-python">{a % 3 for a in range(100)}
+</code></pre>
+<pre><code>{0, 1, 2}
+</code></pre>
+<h2 id="generators">Generators</h2>
+<p>Difference between list comprehensions and generator expressions:</p>
+<h3 id="list-comprehensions-use-square-brackets-while-generator-expressions-use-parentheses"><strong>List comprehensions use square brackets, while generator expressions use parentheses</strong></h3>
+<pre><code class="language-python"># list comprehension:
+[n * 2 for n in range(5)]
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+<pre><code class="language-python"># generator
+g = (n * 2 for n in range(5))
+list(g)
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+<h3 id="a-list-is-a-collection-of-values-while-a-generator-is-a-recipe-for-producing-values"><strong>A list is a collection of values, while a generator is a recipe for producing values</strong></h3>
+<p>When you create a list, you are actually building a collection of values, and there is some memory cost associated with that.</p>
+<p>When you create a generator, you are not building a collection of values, but a recipe for producing those values.</p>
+<p>Both expose the same iterator interface.</p>
+<pre><code class="language-python">l = [n * 2 for n in range(5)]
+for val in l:
+    print(val, end=&quot; &quot;)
+</code></pre>
+<pre><code>0 2 4 6 8
+</code></pre>
+<pre><code class="language-python">g = g = (n * 2 for n in range(5))
+for val in g:
+    print(val, end=&quot; &quot;)
+</code></pre>
+<pre><code>0 2 4 6 8
+</code></pre>
+<p>The difference is that a generator expression does not actually compute the values until they are needed. This not only leads to memory efficiency, but to computational efficiency as well! This also means that while the size of a list is limited by available memory, the size of a generator expression is unlimited!</p>
+<h3 id="a-list-can-be-iterated-multiple-times-a-generator-expression-is-single-use">A list can be iterated multiple times; a generator expression is single-use</h3>
+<pre><code class="language-python">l = [n * 2 for n in range(5)]
+
+for val in l:
+    print(val, end=&quot; &quot;)
+
+print(&quot;\n&quot;)
+
+for val in l:
+    print(val, end=&quot; &quot;)
+</code></pre>
+<pre><code>0 2 4 6 8 
+
+0 2 4 6 8
+</code></pre>
+<pre><code class="language-python">g = g = (n * 2 for n in range(5))
+
+list(g)
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+<pre><code class="language-python">list(g)
+</code></pre>
+<pre><code>[]
+</code></pre>
+<p>This can be very useful because it means iteration can be stopped and started:</p>
+<pre><code class="language-python">g = g = (n ** 2 for n in range(12))
+
+for n in g:
+    print(n, end=&quot; &quot;) 
+    if n &gt; 30:
+        break
+
+print(&quot;\nDoing something in between...&quot;)
+
+for n in g:
+    print(n, end=&quot; &quot;)
+</code></pre>
+<pre><code>0 1 4 9 16 25 36 
+Doing something in between...
+49 64 81 100 121
+</code></pre>
+<p>This is useful when working with collections of data files on disk; it means that you can quite easily analyze them in batches, letting the generator keep track of which ones you have yet to see.</p>
+<h3 id="generator-functions-using-yield">Generator Functions: Using <code>yield</code></h3>
+<pre><code class="language-python"># list comprehension
+
+L1 = [n * 2 for n in range(5)]
+
+L2 = []
+for n in range(5):
+    L2.append(n * 2)
+
+print(&quot;L1:&quot;, L1)
+print(&quot;L2:&quot;, L2)
+</code></pre>
+<pre><code>L1: [0, 2, 4, 6, 8]
+L2: [0, 2, 4, 6, 8]
+</code></pre>
+<pre><code class="language-python"># generator
+G1 = (n * 2 for n in range(5))
+
+# generator function
+def gen():
+    for n in range(5):
+        yield n * 2
+
+G2 = gen()
+
+print(*G1)
+print(*G2)
+</code></pre>
+<pre><code>0 2 4 6 8
+0 2 4 6 8
+</code></pre>
+<h3 id="example-prime-number-generator">Example: Prime Number Generator</h3>
+<pre><code class="language-python"># Generate a list of candidates
+L = [n for n in range(2, 40)]
+print(L)
+</code></pre>
+<pre><code>[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+</code></pre>
+<pre><code class="language-python"># Remove all multiples of the first value
+L = [n for n in L if n == L[0] or n % L[0] &gt; 0]
+print(L)
+</code></pre>
+<pre><code>[2, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39]
+</code></pre>
+<pre><code class="language-python"># Remove all multiples of the second value
+L = [n for n in L if n == L[1] or n % L[1] &gt; 0]
+print(L)
+</code></pre>
+<pre><code>[2, 3, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31, 35, 37]
+</code></pre>
+<p>If we repeat this procedure enough times on a large enough list, we can generate as many primes as we wish.</p>
+<p>Encapsulate this logic in a generator function:</p>
+<pre><code class="language-python">def gen_primes(N):
+    &quot;&quot;&quot;
+    Generate primes up to N
+    &quot;&quot;&quot;
+    primes = set()
+    for n in range(2, N):
+        # print(&quot;n = &quot;, n, &quot;:&quot;, *(n % p &gt; 0 for p in primes))
+        if all(n % p &gt; 0 for p in primes):
+            primes.add(n)
+            yield n
+
+
+print(*gen_primes(100))
+</code></pre>
+<pre><code>2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+</code></pre>
+<pre><code class="language-python">
+</code></pre>
+<pre><code class="language-python">
+</code></pre>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>Last updated on Jul 6, 2020</p>
+
+          
+
+
+
+
+
+
+  
+  
+
+<p class="edit-page">
+  <a href="https://github.com/gcushen/hugo-academic/edit/master/content/notes/python/_index.md">
+    <i class="fas fa-pen pr-2"></i>Edit this page
+  </a>
+</p>
+
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js" integrity="sha256-lyWCDMnMeZiXRi7Zl54sZGKYmgQs4izcT7+tKc+KUBk=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

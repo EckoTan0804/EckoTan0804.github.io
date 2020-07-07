@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog customization | Haobin Tan</title>
+    <link>https://eckotan0804.github.io/category/blog-customization/</link>
+      <atom:link href="https://eckotan0804.github.io/category/blog-customization/index.xml" rel="self" type="application/rss+xml" />
+    <description>Blog customization</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Blog customization</title>
+      <link>https://eckotan0804.github.io/category/blog-customization/</link>
+    </image>
+    
+    <item>
+      <title>Customizing the Order of Left Menu Items</title>
+      <link>https://eckotan0804.github.io/post/hugo-academic/customize-left-menu-order/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/post/hugo-academic/customize-left-menu-order/</guid>
+      <description>&lt;p&gt;If we follow the 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-course-or-documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official tutorials of Academic&lt;/a&gt; to create a course or documentation, the default order of the menu items in the left side-menu is &lt;strong&gt;alphabetical&lt;/strong&gt;. However, it can make more sense if we could customize the order.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s take 
+&lt;a href=&#34;https://academic-demo.netlify.app/courses/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;online course demo&lt;/a&gt; as an example. (Take a look at its code in 
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/courses&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repo&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;Originally, the left side-menu looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/截屏2020-07-07%2012.11.01.png&#34; alt=&#34;截屏2020-07-07 12.11.01&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We want to customize the menu like below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/截屏2020-07-07%2012.11.48.png&#34; alt=&#34;截屏2020-07-07 12.11.48&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;How can we do that?&lt;/p&gt;
+&lt;h2 id=&#34;step-by-step-customization&#34;&gt;Step by Step Customization&lt;/h2&gt;
+&lt;p&gt;According to 
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/831&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ordering of Tutorial Contents #831&lt;/a&gt;, we could do it as follows:&lt;/p&gt;
+&lt;h3 id=&#34;1define-parent-menu-items-in-config_defaultmenustoml&#34;&gt;1.Define parent menu items in &lt;code&gt;config/_default/menus.toml&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Add the following codes in &lt;code&gt;menu.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;################################
+# Courses
+################################
+[[example]]
+  name = &amp;quot;Example Topic&amp;quot;
+  weight = 10
+  identifier = &amp;quot;example-topic&amp;quot;
+
+[[example]]
+  name = &amp;quot;Another Topic&amp;quot;
+  weight = 20
+  identifier = &amp;quot;another-topic&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that &lt;code&gt;example&lt;/code&gt; is the folder name. If you rename the folder, you have to change &lt;code&gt;example&lt;/code&gt; to &lt;code&gt;&amp;lt;newFolderName&amp;gt;&lt;/code&gt;. (More see: 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#menus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Menus&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;2-define-parent-menus-items-in-config_defaultconfigtoml&#34;&gt;2. Define parent menus items in &lt;code&gt;config/_default/config.toml&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Add the following codes in &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;################################
+# Courses
+################################
+[[menu.example]]
+  name = &amp;quot;Example Topic&amp;quot;
+  weight = 10
+  identifier = &amp;quot;example-topic&amp;quot;
+
+[[menu.example]]
+  name = &amp;quot;Another Topic&amp;quot;
+  weight = 20
+  identifier = &amp;quot;another-topic&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-specify-parent-menu-items-in-the-front-matter-of-each-docstutorials-page&#34;&gt;3. Specify parent menu items in the front matter of each docs/tutorials page&lt;/h3&gt;
+&lt;p&gt;In &lt;code&gt;example1.md&lt;/code&gt;, we modify the &lt;code&gt;menu&lt;/code&gt; parameter in front matter as followings:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ymal&#34;&gt;menu:
+  example:
+    parent: example-topic
+    weight: 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For &lt;code&gt;parent&lt;/code&gt; we use the identifier defined in step 2 instead of the parent menu item&amp;rsquo;s name.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt; specifies the position of this page under the parent item &lt;code&gt;example-topic&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We do the similar thing for &lt;code&gt;example2.md&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  example:
+    parent: another-topic
+    weight: 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That&amp;rsquo;s it! Now the menu is exactly what we want!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

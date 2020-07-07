@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Haobin Tan</title>
+    <link>https://eckotan0804.github.io/post/</link>
+      <atom:link href="https://eckotan0804.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>https://eckotan0804.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>Customizing the Order of Left Menu Items</title>
+      <link>https://eckotan0804.github.io/post/hugo-academic/customize-left-menu-order/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/post/hugo-academic/customize-left-menu-order/</guid>
+      <description>&lt;p&gt;If we follow the 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-course-or-documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official tutorials of Academic&lt;/a&gt; to create a course or documentation, the default order of the menu items in the left side-menu is &lt;strong&gt;alphabetical&lt;/strong&gt;. However, it can make more sense if we could customize the order.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s take 
+&lt;a href=&#34;https://academic-demo.netlify.app/courses/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;online course demo&lt;/a&gt; as an example. (Take a look at its code in 
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/courses&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repo&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;Originally, the left side-menu looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/截屏2020-07-07%2012.11.01.png&#34; alt=&#34;截屏2020-07-07 12.11.01&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We want to customize the menu like below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/截屏2020-07-07%2012.11.48.png&#34; alt=&#34;截屏2020-07-07 12.11.48&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;How can we do that?&lt;/p&gt;
+&lt;h2 id=&#34;step-by-step-customization&#34;&gt;Step by Step Customization&lt;/h2&gt;
+&lt;p&gt;According to 
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/831&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ordering of Tutorial Contents #831&lt;/a&gt;, we could do it as follows:&lt;/p&gt;
+&lt;h3 id=&#34;1define-parent-menu-items-in-config_defaultmenustoml&#34;&gt;1.Define parent menu items in &lt;code&gt;config/_default/menus.toml&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Add the following codes in &lt;code&gt;menu.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;################################
+# Courses
+################################
+[[example]]
+  name = &amp;quot;Example Topic&amp;quot;
+  weight = 10
+  identifier = &amp;quot;example-topic&amp;quot;
+
+[[example]]
+  name = &amp;quot;Another Topic&amp;quot;
+  weight = 20
+  identifier = &amp;quot;another-topic&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that &lt;code&gt;example&lt;/code&gt; is the folder name. If you rename the folder, you have to change &lt;code&gt;example&lt;/code&gt; to &lt;code&gt;&amp;lt;newFolderName&amp;gt;&lt;/code&gt;. (More see: 
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#menus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Menus&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;2-define-parent-menus-items-in-config_defaultconfigtoml&#34;&gt;2. Define parent menus items in &lt;code&gt;config/_default/config.toml&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Add the following codes in &lt;code&gt;config.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;################################
+# Courses
+################################
+[[menu.example]]
+  name = &amp;quot;Example Topic&amp;quot;
+  weight = 10
+  identifier = &amp;quot;example-topic&amp;quot;
+
+[[menu.example]]
+  name = &amp;quot;Another Topic&amp;quot;
+  weight = 20
+  identifier = &amp;quot;another-topic&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-specify-parent-menu-items-in-the-front-matter-of-each-docstutorials-page&#34;&gt;3. Specify parent menu items in the front matter of each docs/tutorials page&lt;/h3&gt;
+&lt;p&gt;In &lt;code&gt;example1.md&lt;/code&gt;, we modify the &lt;code&gt;menu&lt;/code&gt; parameter in front matter as followings:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ymal&#34;&gt;menu:
+  example:
+    parent: example-topic
+    weight: 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For &lt;code&gt;parent&lt;/code&gt; we use the identifier defined in step 2 instead of the parent menu item&amp;rsquo;s name.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt; specifies the position of this page under the parent item &lt;code&gt;example-topic&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We do the similar thing for &lt;code&gt;example2.md&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  example:
+    parent: another-topic
+    weight: 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That&amp;rsquo;s it! Now the menu is exactly what we want!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://eckotan0804.github.io/post/hello-world/</link>
+      <pubDate>Sat, 04 Jul 2020 17:43:52 +0200</pubDate>
+      <guid>https://eckotan0804.github.io/post/hello-world/</guid>
+      <description>&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;
+&lt;h2 id=&#34;emphasis&#34;&gt;Emphasis&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Italics&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Strikethrough&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;list&#34;&gt;List&lt;/h2&gt;
+&lt;h3 id=&#34;ordered&#34;&gt;Ordered&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Second item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;unordered&#34;&gt;Unordered&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;First item
+&lt;ul&gt;
+&lt;li&gt;Item 1.1
+&lt;ul&gt;
+&lt;li&gt;Item 1.1.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;images&#34;&gt;Images&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/截屏2020-07-05%2014.14.29.png&#34; alt=&#34;截屏2020-07-05 14.14.29&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;emojis&#34;&gt;Emojis&lt;/h2&gt;
+&lt;p&gt;See the 
+&lt;a href=&#34;http://www.webpagefx.com/tools/emoji-cheat-sheet/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emoji cheat sheet&lt;/a&gt; for available emoticons.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;I : heart : Academic : smile :
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I ❤️ Academic 😄&lt;/p&gt;
+&lt;h2 id=&#34;quote&#34;&gt;Quote&lt;/h2&gt;
+&lt;h3 id=&#34;block-quote&#34;&gt;Block quote&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is a blockquote&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;highlight-quote&#34;&gt;Highlight quote&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;This is a &lt;span class=&#34;markup-quote&#34;&gt;highlighted quote&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a &lt;hl&gt;highlighted quote&lt;/hl&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;footnotes&#34;&gt;Footnotes&lt;/h2&gt;
+&lt;p&gt;I have more &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; to say.&lt;/p&gt;
+&lt;h2 id=&#34;diagrams&#34;&gt;Diagrams&lt;/h2&gt;
+&lt;h3 id=&#34;flowchart&#34;&gt;Flowchart&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph TD;
+  A--&amp;gt;B;
+  A--&amp;gt;C;
+  B--&amp;gt;D;
+  C--&amp;gt;D;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sequence-diagram&#34;&gt;Sequence diagram&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice-&amp;gt;John: Hello John, how are you?
+  loop Healthcheck
+      John-&amp;gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts &amp;lt;br/&amp;gt;prevail...
+  John--&amp;gt;Alice: Great!
+  John-&amp;gt;Bob: How about you?
+  Bob--&amp;gt;John: Jolly good!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;create-diagram-using-drawio&#34;&gt;Create diagram using draw.io&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Create diagram in 
+&lt;a href=&#34;https://draw.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;draw.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Embed in Academic by choosing &lt;strong&gt;File &amp;gt; Embed &amp;gt; SVG&lt;/strong&gt; in the 
+&lt;a href=&#34;https://draw.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;draw.io&lt;/a&gt; editor and pasting the generated code into your page.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code highlighting&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Hello World!&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+&lt;p&gt;Inline math: $\nabla F(\mathbf{x}_{n})$&lt;/p&gt;
+&lt;p&gt;Math block:
+$$
+\gamma_{n} = \frac{
+\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T
+\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
+{\left |\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right |^2}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+x &amp;amp;= (3 * 4) + 5 \\&lt;br&gt;
+&amp;amp;= 12 + 5 \\&lt;br&gt;
+&amp;amp;= 17
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;table&#34;&gt;Table&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Command&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hugo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Build your website.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hugo serve -w&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;View your website.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;asides&#34;&gt;Asides&lt;/h2&gt;
+&lt;p&gt;Asides are a useful feature that &lt;strong&gt;add side content such as notes, hints, or warnings to your articles&lt;/strong&gt;. They are especially handy when writing educational tutorial-style articles or documentation.&lt;/p&gt;
+&lt;h3 id=&#34;note&#34;&gt;Note&lt;/h3&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside &lt;strong&gt;is&lt;/strong&gt; useful &lt;strong&gt;for&lt;/strong&gt; displaying notices, hints, &lt;strong&gt;or&lt;/strong&gt; definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;warning&#34;&gt;Warning&lt;/h3&gt;
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    Here&amp;rsquo;s some important information&amp;hellip;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Footnote example &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ML | Haobin Tan</title>
+    <link>https://eckotan0804.github.io/tag/ml/</link>
+      <atom:link href="https://eckotan0804.github.io/tag/ml/index.xml" rel="self" type="application/rss+xml" />
+    <description>ML</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>ML</title>
+      <link>https://eckotan0804.github.io/tag/ml/</link>
+    </image>
+    
+    <item>
+      <title>Bias Variance Tradeoff</title>
+      <link>https://eckotan0804.github.io/notes/machine-learning/model-selection/bias-variance-tradeoff/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/machine-learning/model-selection/bias-variance-tradeoff/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Resaon&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;th&gt;affect&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Model&amp;rsquo;s complexity ⬆️&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Model&amp;rsquo;s complexity ⬇️&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Bias&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;wrong  assumption&lt;/td&gt;
+&lt;td&gt;assume a  quadratic model to be linear&lt;/td&gt;
+&lt;td&gt;underfitting&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;⬇️&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;⬆️&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Variance&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;excessive  sensitivity to small variations&lt;/td&gt;
+&lt;td&gt;high-degree  polynomial model&lt;/td&gt;
+&lt;td&gt;overfitting&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;⬆️&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;⬇️&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Inreducible  error&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;noisy  data&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/EckoTan0804/upic-repo/master/uPic/image-20200120105846503.png&#34; alt=&#34;image-20200120105846503&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;explaination&#34;&gt;Explaination&lt;/h2&gt;
+&lt;p&gt;A model’s generalization error can be expressed as the sum of three very different errors:&lt;/p&gt;
+&lt;h3 id=&#34;bias&#34;&gt;Bias&lt;/h3&gt;
+&lt;p&gt;This part of the generalization error is due to &lt;strong&gt;wrong assumptions&lt;/strong&gt;, such as assuming that the data is linear when it is actually quadratic.
+A high-bias model is most likely to &lt;strong&gt;underfit&lt;/strong&gt; the training data.&lt;/p&gt;
+&lt;h3 id=&#34;variance&#34;&gt;Variance&lt;/h3&gt;
+&lt;p&gt;This part is due to the model’s &lt;strong&gt;excessive sensitivity to small variations&lt;/strong&gt; in the training data.&lt;br&gt;
+A model with many degrees of freedom (such as a high-degree polynomial model) is likely to have &lt;strong&gt;high variance&lt;/strong&gt;, and thus to &lt;strong&gt;overfit&lt;/strong&gt; the training data.&lt;/p&gt;
+&lt;h3 id=&#34;irreducible-error&#34;&gt;Irreducible Error&lt;/h3&gt;
+&lt;p&gt;This part is due to the &lt;strong&gt;noisiness of the data&lt;/strong&gt; itself.
+The only way to reduce this part of the error is to &lt;strong&gt;clean up the data&lt;/strong&gt; (e.g., fix the data sources, such as broken sensors, or detect and remove outliers).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;High bias&lt;/th&gt;
+&lt;th&gt;Low bias&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;High variance&lt;/td&gt;
+&lt;td&gt;something is terribly wrong! 😭&lt;/td&gt;
+&lt;td&gt;Overfitting&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Low variance&lt;/td&gt;
+&lt;td&gt;Underfitting&lt;/td&gt;
+&lt;td&gt;too good to be true! 🤪&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://eckotan0804.github.io/notes/machine-learning/regression/linear-regression/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/machine-learning/regression/linear-regression/</guid>
+      <description>&lt;h2 id=&#34;linear-regression-model&#34;&gt;Linear Regression Model&lt;/h2&gt;
+&lt;p&gt;A linear model makes a prediction $\hat{y}_i$ by &lt;strong&gt;simply computing a weighted sum of the input $\boldsymbol{x}_i$, plus a constant $w_0$ called the &lt;em&gt;bias&lt;/em&gt; term&lt;/strong&gt;:&lt;/p&gt;
+&lt;h3 id=&#34;for-single-sampleinstances&#34;&gt;For single sample/instances&lt;/h3&gt;
+&lt;p&gt;$$
+\hat{y}_i = f \left( \boldsymbol{x} \right) = w_0 + \sum_{j=1}^{D}w_{j} x_{i, j}
+$$&lt;/p&gt;
+&lt;p&gt;In matrix-form:&lt;/p&gt;
+&lt;p&gt;$$
+\hat{y}_{i}=w_{0}+ \displaystyle \sum_{j=1}^{D} w_{j} x_{i, j}=\tilde{\boldsymbol{x}}_{i}^{T} \boldsymbol{w}&lt;br&gt;
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\tilde{\boldsymbol{x}}_{i} = \left[\begin{array}{c}{1} \\ {x_{i}}\end{array}\right] = \left[\begin{array}{c} {1} \\ x_{i, 1} \\ \vdots \\ {x_{i, D}}\end{array}\right] \in \mathbb{R}^{D+1}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\boldsymbol{w}=\left[\begin{array}{c}{w_{0}} \\ {\vdots} \\ {w_{D}}\end{array}\right] \in \mathbb{R}^{D+1}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;on-full-dataset&#34;&gt;On full dataset&lt;/h3&gt;
+&lt;p&gt;$$
+\hat{\boldsymbol{y}}=\left[\begin{array}{c}{\hat{y}_{1}} \\{\vdots} \\ {\hat{y}_{n}}\end{array}\right]=\left[\begin{array}{c}{\tilde{\boldsymbol{x}}_{1}^{T} \boldsymbol{w}} \\ {\vdots} \\ {\tilde{\boldsymbol{x}}_{n}^{T} \boldsymbol{w}}\end{array}\right] = \underbrace{\left[\begin{array}{cc}{1} &amp;amp; {\boldsymbol{x}_{1}^{T}} \\ {\vdots} &amp;amp; {\vdots} \\ {1} &amp;amp; {\boldsymbol{x}_{n}^{T}}\end{array}\right]}_{=: \boldsymbol{X}} \boldsymbol{w} = \boldsymbol{X} \boldsymbol{w}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\hat{\boldsymbol{y}}$: vector containing the output for each sample&lt;/li&gt;
+&lt;li&gt;$\boldsymbol{X}$: data-matrix containing a vector of ones as the first column as bias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$y=\underbrace{\begin{bmatrix}{\widehat y}_1 \\ \vdots\\{\widehat y}_n\end{bmatrix}}_{\boldsymbol\in\mathbf ℝ^{n\times1}}=\begin{bmatrix}\widehat x_1^Tw\\\vdots\\\widehat x_n^Tw\end{bmatrix}=\begin{bmatrix}1\cdot w_0+x_{1,1}\cdot w_1+\cdots+x_{1,D}\cdot w_D\\\vdots\\1\cdot w_0+x_{n,1}\cdot w_1+\cdots+x_{n,D}\cdot w_D\end{bmatrix}=\underset{=\begin{bmatrix}1&amp;amp;x_1^T\\\vdots&amp;amp;\vdots\\1&amp;amp;x_n^T\end{bmatrix}\\=:\boldsymbol X\in\mathbb{R}^{n\times(1+D)}}{\underbrace{\begin{bmatrix}1&amp;amp;x_{1,1}&amp;amp;\cdots&amp;amp;x_{1,D}\\\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\1&amp;amp;x_{n,1}&amp;amp;\cdots&amp;amp;x_{n,D}\end{bmatrix}}\cdot}\underbrace{\begin{bmatrix}w_0\\w_1\\\vdots\\w_D\end{bmatrix}}_{=:\boldsymbol w\boldsymbol\in\mathbf ℝ^{\boldsymbol(\mathbf1\boldsymbol+\mathbf D\boldsymbol)\boldsymbol\times\mathbf1}}$&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Objective Function</title>
+      <link>https://eckotan0804.github.io/notes/machine-learning/model-selection/objective-function/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/machine-learning/model-selection/objective-function/</guid>
+      <description>&lt;h2 id=&#34;how-does-the-objective-function-look-like&#34;&gt;How does the objective function look like?&lt;/h2&gt;
+&lt;p&gt;Objective function:&lt;/p&gt;
+&lt;p&gt;$$
+\operatorname{Obj}(\Theta)= \overbrace{L(\Theta)}^{\text {Training Loss}}  + \underbrace{\Omega(\Theta)}_{\text{Regularization}}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Training loss: measures how well the model fit on training data
+$$
+L=\sum_{i=1}^{n} l\left(y_{i}, g_{i}\right)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Square loss:
+$$
+l(y_i, \hat{y}_i) = (y_i - \hat{y}_i)^2
+$$&lt;/li&gt;
+&lt;li&gt;Logistic loss:
+$$
+l(y_i, \hat{y}_i) = y_i \log(1 + e^{-\hat{y}_i}) + (1 - y_i) \log(1 + e^{\hat{y}_i})
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Regularization: How complicated is the model?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$L_2$ norm (Ridge): $\omega(w) = \lambda |w|^2$&lt;/li&gt;
+&lt;li&gt;$L_1$ norm (Lasso): $\omega(w) = \lambda |w|$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Objective Function&lt;/th&gt;
+&lt;th&gt;Linear model?&lt;/th&gt;
+&lt;th&gt;Loss&lt;/th&gt;
+&lt;th&gt;Regularization&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Ridge&lt;/strong&gt; regression&lt;/td&gt;
+&lt;td&gt;$\sum_{i=1}^{n}\left(y_{i}-w^{\top} x_{i}\right)^{2}+\lambda|w|^{2}$&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;square&lt;/td&gt;
+&lt;td&gt;$L_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Lasso&lt;/strong&gt; regression&lt;/td&gt;
+&lt;td&gt;$\sum_{i=1}^{n}\left(y_{i}-w^{\top} x_{i}\right)^{2}+\lambda|w|$&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;square&lt;/td&gt;
+&lt;td&gt;$L_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Logistic&lt;/strong&gt; regression&lt;/td&gt;
+&lt;td&gt;$\sum_{i=1}^{n}\left[y_{i} \cdot \ln \left(1+e^{-w^{\top} x_{i}}\right)+\left(1-y_{i}\right) \cdot \ln \left(1+e^{w^{\top} x_{i}}\right)\right]+\lambda|w|^{2}$&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;logistic&lt;/td&gt;
+&lt;td&gt;$L_1$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;why-do-we-want-to-contain-two-component-in-the-objective&#34;&gt;Why do we want to contain two component in the objective?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Optimizing training loss encourages predictive models&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Fitting well in training data at least get you close to training data which is hopefully close to the underlying distribution&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Optimizing regularization encourages simple models&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Simpler models tends to have smaller variance in future predictions, making prediction&lt;/em&gt; &lt;em&gt;stable&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

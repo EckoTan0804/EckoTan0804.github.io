@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regression | Haobin Tan</title>
+    <link>https://eckotan0804.github.io/tag/regression/</link>
+      <atom:link href="https://eckotan0804.github.io/tag/regression/index.xml" rel="self" type="application/rss+xml" />
+    <description>Regression</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://eckotan0804.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Regression</title>
+      <link>https://eckotan0804.github.io/tag/regression/</link>
+    </image>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://eckotan0804.github.io/notes/machine-learning/regression/linear-regression/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://eckotan0804.github.io/notes/machine-learning/regression/linear-regression/</guid>
+      <description>&lt;h2 id=&#34;linear-regression-model&#34;&gt;Linear Regression Model&lt;/h2&gt;
+&lt;p&gt;A linear model makes a prediction $\hat{y}_i$ by &lt;strong&gt;simply computing a weighted sum of the input $\boldsymbol{x}_i$, plus a constant $w_0$ called the &lt;em&gt;bias&lt;/em&gt; term&lt;/strong&gt;:&lt;/p&gt;
+&lt;h3 id=&#34;for-single-sampleinstances&#34;&gt;For single sample/instances&lt;/h3&gt;
+&lt;p&gt;$$
+\hat{y}_i = f \left( \boldsymbol{x} \right) = w_0 + \sum_{j=1}^{D}w_{j} x_{i, j}
+$$&lt;/p&gt;
+&lt;p&gt;In matrix-form:&lt;/p&gt;
+&lt;p&gt;$$
+\hat{y}_{i}=w_{0}+ \displaystyle \sum_{j=1}^{D} w_{j} x_{i, j}=\tilde{\boldsymbol{x}}_{i}^{T} \boldsymbol{w}&lt;br&gt;
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\tilde{\boldsymbol{x}}_{i} = \left[\begin{array}{c}{1} \\ {x_{i}}\end{array}\right] = \left[\begin{array}{c} {1} \\ x_{i, 1} \\ \vdots \\ {x_{i, D}}\end{array}\right] \in \mathbb{R}^{D+1}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\boldsymbol{w}=\left[\begin{array}{c}{w_{0}} \\ {\vdots} \\ {w_{D}}\end{array}\right] \in \mathbb{R}^{D+1}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;on-full-dataset&#34;&gt;On full dataset&lt;/h3&gt;
+&lt;p&gt;$$
+\hat{\boldsymbol{y}}=\left[\begin{array}{c}{\hat{y}_{1}} \\{\vdots} \\ {\hat{y}_{n}}\end{array}\right]=\left[\begin{array}{c}{\tilde{\boldsymbol{x}}_{1}^{T} \boldsymbol{w}} \\ {\vdots} \\ {\tilde{\boldsymbol{x}}_{n}^{T} \boldsymbol{w}}\end{array}\right] = \underbrace{\left[\begin{array}{cc}{1} &amp;amp; {\boldsymbol{x}_{1}^{T}} \\ {\vdots} &amp;amp; {\vdots} \\ {1} &amp;amp; {\boldsymbol{x}_{n}^{T}}\end{array}\right]}_{=: \boldsymbol{X}} \boldsymbol{w} = \boldsymbol{X} \boldsymbol{w}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\hat{\boldsymbol{y}}$: vector containing the output for each sample&lt;/li&gt;
+&lt;li&gt;$\boldsymbol{X}$: data-matrix containing a vector of ones as the first column as bias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$y=\underbrace{\begin{bmatrix}{\widehat y}_1 \\ \vdots\\{\widehat y}_n\end{bmatrix}}_{\boldsymbol\in\mathbf ℝ^{n\times1}}=\begin{bmatrix}\widehat x_1^Tw\\\vdots\\\widehat x_n^Tw\end{bmatrix}=\begin{bmatrix}1\cdot w_0+x_{1,1}\cdot w_1+\cdots+x_{1,D}\cdot w_D\\\vdots\\1\cdot w_0+x_{n,1}\cdot w_1+\cdots+x_{n,D}\cdot w_D\end{bmatrix}=\underset{=\begin{bmatrix}1&amp;amp;x_1^T\\\vdots&amp;amp;\vdots\\1&amp;amp;x_n^T\end{bmatrix}\\=:\boldsymbol X\in\mathbb{R}^{n\times(1+D)}}{\underbrace{\begin{bmatrix}1&amp;amp;x_{1,1}&amp;amp;\cdots&amp;amp;x_{1,D}\\\vdots&amp;amp;\vdots&amp;amp;\ddots&amp;amp;\vdots\\1&amp;amp;x_{n,1}&amp;amp;\cdots&amp;amp;x_{n,D}\end{bmatrix}}\cdot}\underbrace{\begin{bmatrix}w_0\\w_1\\\vdots\\w_D\end{bmatrix}}_{=:\boldsymbol w\boldsymbol\in\mathbf ℝ^{\boldsymbol(\mathbf1\boldsymbol+\mathbf D\boldsymbol)\boldsymbol\times\mathbf1}}$&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
